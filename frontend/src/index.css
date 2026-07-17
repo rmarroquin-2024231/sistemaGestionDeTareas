@@ -1,0 +1,147 @@
+/* ============================================================
+   LUMA — Design tokens
+   Paleta cálida: cuaderno de papel sobre un escritorio de madera,
+   con acentos verdes de hojas y tinta terracota. Sin azules ni morados.
+   ============================================================ */
+:root {
+  /* Superficies */
+  --color-bg: #f4ead9;
+  --color-bg-elevated: #faf3e7;
+  --color-surface: #fffcf5;
+  --color-surface-dark: #2b1d13;
+  --color-surface-dark-alt: #3a2717;
+  --color-border: rgba(61, 42, 26, 0.14);
+  --color-border-strong: rgba(61, 42, 26, 0.26);
+
+  /* Marca */
+  --color-primary: #c1873b;
+  --color-primary-dark: #9c6b28;
+  --color-primary-soft: rgba(193, 135, 59, 0.18);
+  --color-accent-terracotta: #a9542e;
+  --color-accent-olive: #707a3d;
+  --color-accent-olive-dark: #565f2d;
+  --color-cream-deep: #e4cd9d;
+
+  /* Texto */
+  --color-text: #33231a;
+  --color-text-muted: #6f5b47;
+  --color-text-faint: #9c8768;
+  --color-text-on-dark: #f6ead6;
+  --color-text-on-dark-muted: #cbb494;
+
+  /* Estado */
+  --color-danger: #b3452c;
+  --color-danger-soft: rgba(179, 69, 44, 0.12);
+  --color-success: #707a3d;
+
+  /* Escritorio y cuaderno (Luma) */
+  --wood-dark: #4a3423;
+  --wood-mid: #5c4127;
+  --wood-light: #77543880;
+  --paper: #faf4e6;
+  --paper-shadow: rgba(46, 30, 16, 0.35);
+  --paper-line: rgba(90, 62, 38, 0.14);
+  --paper-margin: #c1573a;
+  --ink: #3a2a1c;
+  --ink-muted: #7a664e;
+  --leaf-green: #5f7a3d;
+  --leaf-green-dark: #45592b;
+  --leaf-amber: #c1873b;
+  --metal-ring: #b8a888;
+  --paper-line-strong: rgba(90, 62, 38, 0.34);
+
+  /* Prioridades: verde / amarillo / rojo pastel oscuro */
+  --priority-baja: #6f8f5b;
+  --priority-baja-soft: rgba(111, 143, 91, 0.2);
+  --priority-media: #b8923c;
+  --priority-media-soft: rgba(184, 146, 60, 0.22);
+  --priority-alta: #af5049;
+  --priority-alta-soft: rgba(175, 80, 73, 0.2);
+
+  /* Cumplimiento */
+  --status-complete: #5c7a3f;
+  --status-remaining: #d8c39a;
+
+  /* Tipografía */
+  --font-display: 'Fraunces', 'Iowan Old Style', serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-hand: 'Caveat', cursive;
+  --font-brand: 'Baloo 2', 'Fredoka', var(--font-body);
+
+  /* Forma */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-panel: 0 30px 60px -25px rgba(43, 29, 19, 0.35);
+  --shadow-focus: 0 0 0 3px rgba(193, 135, 59, 0.32);
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(120% 120% at 15% 0%, #f9efdd 0%, var(--color-bg) 55%);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-accent-terracotta);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--color-primary-soft);
+  color: var(--color-text);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-sm);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
