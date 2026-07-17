@@ -1,0 +1,159 @@
+/* Controles de formulario y botones para las vistas internas del panel
+   (más convencionales que el estilo "cuaderno" del login/registro). */
+
+.db-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.db-field__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--ink-muted);
+}
+
+.db-input,
+.db-select,
+.db-textarea {
+  width: 100%;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 0.92rem;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--color-bg-elevated);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.db-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.db-input:focus,
+.db-select:focus,
+.db-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(193, 135, 59, 0.18);
+}
+
+.db-field__error {
+  font-size: 0.78rem;
+  color: var(--color-danger);
+}
+
+.db-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.db-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: filter 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.db-btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.db-btn--primary {
+  background: var(--color-primary);
+  color: #fff8ec;
+}
+
+.db-btn--primary:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.db-btn--ghost {
+  background: transparent;
+  border-color: var(--color-border-strong);
+  color: var(--ink-muted);
+}
+
+.db-btn--ghost:hover:not(:disabled) {
+  border-color: var(--color-accent-terracotta);
+  color: var(--ink);
+}
+
+.db-btn--danger {
+  background: transparent;
+  border-color: rgba(179, 69, 44, 0.4);
+  color: var(--color-danger);
+}
+
+.db-btn--danger:hover:not(:disabled) {
+  background: var(--color-danger-soft);
+}
+
+.db-btn--sm {
+  padding: 6px 12px;
+  font-size: 0.78rem;
+}
+
+/* Insignias de estado y prioridad */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.badge--status-pendiente {
+  background: rgba(159, 143, 110, 0.16);
+  color: #6f5b47;
+}
+
+.badge--status-en_progreso {
+  background: rgba(193, 135, 59, 0.18);
+  color: #8a5c1f;
+}
+
+.badge--status-completada {
+  background: rgba(112, 122, 61, 0.18);
+  color: #4d5527;
+}
+
+.badge--status-cancelada {
+  background: rgba(179, 69, 44, 0.14);
+  color: #7c2f1c;
+}
+
+.badge--priority-baja {
+  background: var(--priority-baja-soft);
+  color: var(--priority-baja);
+}
+
+.badge--priority-media {
+  background: var(--priority-media-soft);
+  color: var(--priority-media);
+}
+
+.badge--priority-alta {
+  background: var(--priority-alta-soft);
+  color: var(--priority-alta);
+}

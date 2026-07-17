@@ -1,0 +1,595 @@
+/* ============================================================
+   Escritorio de "focus": madera suave + props ambientales
+   ============================================================ */
+
+.desk {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  overflow: hidden;
+  animation: desk-fade-in 0.5s ease both;
+  background:
+    radial-gradient(65% 50% at 50% 0%, rgba(250, 226, 172, 0.14) 0%, transparent 72%),
+    radial-gradient(90% 70% at 50% 100%, rgba(0, 0, 0, 0.12) 0%, transparent 65%),
+    linear-gradient(165deg, #6b4c33 0%, #4d3620 100%);
+}
+
+@keyframes desk-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.desk::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background: repeating-linear-gradient(
+    98deg,
+    transparent 0px,
+    transparent 34px,
+    rgba(0, 0, 0, 0.035) 34px,
+    rgba(0, 0, 0, 0.035) 36px
+  );
+  pointer-events: none;
+}
+
+.desk::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(29, 19, 10, 0.28) 100%);
+  pointer-events: none;
+}
+
+.desk__props {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* ---------- Decorative desk props ---------- */
+
+.desk-decor {
+  position: absolute;
+  filter: drop-shadow(0 6px 8px rgba(20, 12, 4, 0.22));
+}
+
+/* Top-down coffee cup, near the notebook's top-left */
+
+.desk-decor--coffee {
+  top: 20%;
+  left: 5%;
+  width: 21vw;
+  min-width: 220px;
+  max-width: 340px;
+  z-index: 1;
+}
+
+.coffee-top__shadow {
+  fill: rgba(0, 0, 0, 0.22);
+  transform: translate(3px, 7px);
+}
+
+.coffee-top__rim {
+  fill: var(--paper);
+  stroke: rgba(0, 0, 0, 0.12);
+  stroke-width: 2;
+}
+
+.coffee-top__coffee {
+  fill: #6b4a32;
+}
+
+.coffee-top__art {
+  stroke: #e9dcc2;
+  stroke-width: 5;
+  stroke-linecap: round;
+  opacity: 0.92;
+}
+
+.coffee-top__handle-shadow {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.15);
+  stroke-width: 13;
+}
+
+.coffee-top__handle {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 11;
+}
+
+/* Leaf vine, draped across the desk from the left edge */
+
+.desk-decor--vine {
+  position: absolute;
+  top: 62%;
+  left: -0.5%;
+  width: 30vw;
+  min-width: 320px;
+  max-width: 480px;
+  z-index: 1;
+  opacity: 0.95;
+  filter: drop-shadow(0 5px 7px rgba(20, 12, 4, 0.2));
+}
+
+.vine__stem {
+  stroke: #8a9a5b;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.8;
+  fill: none;
+}
+
+.vine__leaf {
+  stroke: none;
+}
+
+.vine__leaf--green {
+  fill: var(--leaf-green);
+}
+
+.vine__leaf--green-dark {
+  fill: var(--leaf-green-dark);
+}
+
+.vine__leaf--amber {
+  fill: var(--leaf-amber);
+}
+
+/* Post-its */
+
+.desk-decor--postit {
+  width: 4.6vw;
+  min-width: 52px;
+  max-width: 72px;
+  opacity: 0.94;
+}
+
+.postit__body {
+  fill: #e9c877;
+}
+
+.postit__fold {
+  fill: rgba(0, 0, 0, 0.14);
+}
+
+.postit__line {
+  stroke: rgba(58, 42, 28, 0.28);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.postit--olive .postit__body {
+  fill: #b7c17e;
+}
+
+.postit--terracotta .postit__body {
+  fill: #e0a67e;
+}
+
+/* Pens */
+
+.desk-decor--pen {
+  width: 8vw;
+  min-width: 90px;
+  max-width: 130px;
+  opacity: 0.95;
+}
+
+.pen__body {
+  fill: var(--leaf-amber);
+}
+
+.pen__clip {
+  fill: rgba(0, 0, 0, 0.18);
+}
+
+.pen__tip {
+  fill: #3a2a1c;
+}
+
+.pen__nib {
+  fill: #3a2a1c;
+}
+
+.pen--olive .pen__body {
+  fill: var(--leaf-green);
+}
+
+.pen--terracotta .pen__body {
+  fill: var(--color-accent-terracotta);
+}
+
+/* Washi tape roll */
+
+.desk-decor--washi {
+  width: 6.4vw;
+  min-width: 70px;
+  max-width: 104px;
+  opacity: 0.9;
+}
+
+.washi__outer {
+  fill: #e0a67e;
+}
+
+.washi__pattern {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 8;
+  stroke-dasharray: 3 10;
+}
+
+.washi__hole {
+  fill: var(--wood-dark);
+  opacity: 0.5;
+}
+
+/* Ruler */
+
+.desk-decor--ruler {
+  width: 15vw;
+  min-width: 160px;
+  max-width: 240px;
+  opacity: 0.95;
+}
+
+.ruler__body {
+  fill: #e4cd9d;
+  stroke: rgba(0, 0, 0, 0.12);
+  stroke-width: 1;
+}
+
+.ruler__tick {
+  stroke: rgba(58, 42, 28, 0.45);
+  stroke-width: 1.5;
+}
+
+.ruler__rule {
+  stroke: rgba(58, 42, 28, 0.2);
+  stroke-width: 1;
+}
+
+/* Small paperclips scattered on the desk */
+
+.desk-decor--clip-small {
+  width: 2.6vw;
+  min-width: 26px;
+  max-width: 38px;
+  opacity: 0.85;
+}
+
+.clip-small__wire {
+  fill: none;
+  stroke: #a8afb6;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+/* Index card stack */
+
+.desk-decor--cards {
+  width: 6.6vw;
+  min-width: 74px;
+  max-width: 108px;
+  opacity: 0.95;
+}
+
+.cards__back {
+  fill: #e0a67e;
+  opacity: 0.9;
+}
+
+.cards__front {
+  fill: var(--paper);
+  stroke: rgba(0, 0, 0, 0.1);
+  stroke-width: 1.5;
+}
+
+.cards__line {
+  stroke: rgba(58, 42, 28, 0.22);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+/* Props only shown on roomy desktop viewports */
+
+@media (min-width: 1080px) {
+  .desk-decor--postit,
+  .desk-decor--pen,
+  .desk-decor--washi,
+  .desk-decor--ruler,
+  .desk-decor--clip-small,
+  .desk-decor--cards {
+    display: block;
+  }
+}
+
+@media (max-width: 1079px) {
+  .desk-decor--postit,
+  .desk-decor--pen,
+  .desk-decor--washi,
+  .desk-decor--ruler,
+  .desk-decor--clip-small,
+  .desk-decor--cards,
+  .desk-decor--vine-extra {
+    display: none;
+  }
+
+  .desk-decor--vine {
+    width: 60vw;
+    top: 68%;
+  }
+
+  .desk-decor--coffee {
+    width: 160px;
+    top: 6%;
+    left: 4%;
+  }
+}
+
+@media (max-width: 640px) {
+  .desk-decor--vine {
+    top: auto;
+    bottom: 4%;
+    width: 88vw;
+  }
+
+  .desk-decor--coffee {
+    top: -4%;
+    left: -2%;
+    width: 100px;
+  }
+}
+
+/* ============================================================
+   El cuaderno
+   ============================================================ */
+
+.notebook {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 620px;
+  transform: rotate(-0.5deg);
+  animation: notebook-rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+@keyframes notebook-rise-in {
+  from {
+    opacity: 0;
+    transform: rotate(-0.5deg) translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-0.5deg) translateY(0) scale(1);
+  }
+}
+
+.notebook__spiral {
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+  left: -16px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+.notebook__ring {
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 3.5px solid var(--metal-ring);
+  background: var(--wood-dark);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+.notebook__page {
+  position: relative;
+  background: var(--paper);
+  border-radius: 5px 14px 14px 5px;
+  padding: 52px 46px 44px 78px;
+  box-shadow: var(--shadow-panel), 0 2px 0 rgba(0, 0, 0, 0.08);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 37px,
+    var(--paper-line) 38px
+  );
+  background-position: 0 210px;
+}
+
+.notebook__page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 58px;
+  width: 2px;
+  background: var(--paper-margin);
+  opacity: 0.5;
+}
+
+/* Wordmark: the app name, standalone (icon lives in the corner sticker) */
+
+.notebook__wordmark {
+  display: block;
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 2rem;
+  color: #5a4326;
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+/* Corner sticker: square icon taped to the notebook's top-right corner */
+
+.corner-sticker {
+  position: absolute;
+  top: -40px;
+  right: -44px;
+  z-index: 4;
+  width: 220px;
+  transform: rotate(15deg);
+}
+
+.corner-sticker__tape {
+  position: absolute;
+  top: -10px;
+  left: 44px;
+  width: 96px;
+  height: 30px;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(233, 200, 119, 0.75),
+    rgba(233, 200, 119, 0.75) 6px,
+    rgba(233, 200, 119, 0.55) 6px,
+    rgba(233, 200, 119, 0.55) 12px
+  );
+  transform: rotate(-15deg);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.corner-sticker__card {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 26px -12px rgba(20, 12, 4, 0.55);
+  border: 4px solid var(--paper);
+}
+
+.corner-sticker__card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.notebook__sticker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #5a4326;
+  background: linear-gradient(180deg, rgba(228, 205, 157, 0.85), rgba(228, 205, 157, 0.6));
+  padding: 6px 13px;
+  border-radius: 2px;
+  transform: rotate(-2deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  margin-bottom: 16px;
+}
+
+.notebook__title {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.notebook__subtitle {
+  font-size: 0.98rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin-bottom: 30px;
+  max-width: 38ch;
+}
+
+/* Zona con renglones reales: los inputs se apoyan justo en cada línea */
+
+.notebook__body {
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 37px,
+    var(--paper-line-strong) 38px
+  );
+  background-position: 0 0;
+}
+
+.notebook__body form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.notebook__body .alert {
+  margin-bottom: 16px;
+}
+
+.notebook__body .btn-primary {
+  margin-top: 38px;
+}
+
+.notebook__footer {
+  margin-top: 26px;
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  .notebook {
+    max-width: 100%;
+  }
+
+  .notebook__page {
+    padding: 42px 28px 32px 56px;
+  }
+
+  .notebook__page::before {
+    left: 40px;
+  }
+
+  .notebook__spiral {
+    left: -12px;
+    width: 24px;
+  }
+
+  .notebook__ring {
+    width: 20px;
+    height: 20px;
+  }
+
+  .notebook__title {
+    font-size: 2.3rem;
+  }
+
+  .corner-sticker {
+    width: 168px;
+    top: -30px;
+    right: -30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .desk {
+    padding: 40px 16px;
+  }
+
+  .corner-sticker {
+    width: 136px;
+    top: -24px;
+    right: -22px;
+  }
+}

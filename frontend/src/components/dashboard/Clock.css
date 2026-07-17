@@ -1,0 +1,46 @@
+.clock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(193, 135, 59, 0.1);
+  border: 1px solid rgba(193, 135, 59, 0.22);
+}
+
+.clock__icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-accent-terracotta);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  flex-shrink: 0;
+}
+
+.clock__readout {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.clock__time {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.clock__date {
+  font-size: 0.66rem;
+  color: var(--ink-muted);
+  text-transform: capitalize;
+}
+
+@media (max-width: 720px) {
+  .clock__date {
+    display: none;
+  }
+}

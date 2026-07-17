@@ -1,0 +1,20 @@
+.alert {
+  padding: 10px 14px;
+  border-radius: 2px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  border-left: 3px solid transparent;
+  transform: rotate(-0.4deg);
+}
+
+.alert--error {
+  background: rgba(179, 69, 44, 0.1);
+  border-left-color: var(--color-danger);
+  color: #7c2f1c;
+}
+
+.alert--success {
+  background: rgba(95, 122, 61, 0.12);
+  border-left-color: var(--leaf-green);
+  color: #3f5023;
+}
